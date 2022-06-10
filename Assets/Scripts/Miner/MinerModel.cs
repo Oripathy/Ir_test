@@ -32,7 +32,7 @@ namespace Miner
             Slot = slot;
             AttackLayer = attackLayer;
             _gameModel = gameModel;
-            _gameModel.TurnStarted += StartedTurnReceived;
+            _gameModel.TurnStarted += OnTurnStarted;
             _gameModel.TurnDone += OnTurnEnd;
         }
 
@@ -63,7 +63,7 @@ namespace Miner
             DamageTaken?.Invoke(_health, _maxHealth);
         }
 
-        public void StartedTurnReceived() => TurnReceived?.Invoke(false);
+        public void OnTurnStarted() => TurnReceived?.Invoke(false);
         public void OnTurnEnd() => TurnReceived?.Invoke(true);
 
     }

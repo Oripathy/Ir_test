@@ -18,7 +18,7 @@ namespace GameBehaviour
             _view.AttackButtonPressed += OnAttackButtonPressed;
             _view.SkipButtonPressed += OnSkipButtonPressed;
             _model.TurnAccepted += OnTurnAccepted;
-            _model.TurnStarted += StartedPlayersTurn;
+            _model.TurnStarted += OnTurnStarted;
             _model.TurnDone += OnTurnEnd;
         }
 
@@ -45,7 +45,7 @@ namespace GameBehaviour
 
         private void OnSkipButtonPressed() => _model.OnSkipButtonPressed();
 
-        private void StartedPlayersTurn() => _view.IsButtonsActive(false);
+        private void OnTurnStarted() => _view.IsButtonsActive(false);
 
         private void OnTurnEnd() => _view.IsButtonsActive(true);
     }
